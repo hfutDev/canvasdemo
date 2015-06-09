@@ -1,17 +1,47 @@
 var el = function(name) {
   return document.getElementById(name);
 };
+var toggle = 0;
+el('scene').onmousemove = function(e) {
+  var mouseX = e.layerX;
+  var mouseY = e.layerY;
+  // 音乐点播
+  if(mouseX < 493 && mouseX > 410 && mouseY < 67 && mouseY > 0 && toggle !== 1) {
+    clearCanvas();
+    toggle = 1;
+  } else if(mouseX < 785 && mouseX > 708 && mouseY < 226 && mouseY > 178 && toggle !== 2) {
+    clearCanvas();
+    toggle = 2;
+  } else if(mouseX < 785 && mouseX > 708 && mouseY < 554 && mouseY > 521 && toggle !== 3) {
+    clearCanvas();
+    toggle = 3;
+  } else if(mouseX < 478 && mouseX > 410 && mouseY < 730 && mouseY > 677 && toggle !== 4) {
+    clearCanvas();
+    toggle = 4;
+  } else if(mouseX < 194 && mouseX > 112 && mouseY < 554 && mouseY > 521 && toggle !== 5) {
+    clearCanvas();
+    drawWall();
+    toggle = 5;
+  } else if(mouseX < 192 && mouseX > 112 && mouseY < 226 && mouseY > 178 && toggle !== 6) {
+    clearCanvas();
+    drawNews();
+    toggle = 6;
+  }
+
+};
 
 var context =  el('scene').getContext('2d');
 
-var context2 =  el('scene2').getContext('2d');
+var clearCanvas = function() {
+  context.beginPath();
+  context.arc(450, 370, 290, 0, 2 * Math.PI, false);
+  context.clip();
+  context.clearRect(0, 0, 900, 740);
+};
 
 context.strokeStyle = '#fff';
 context.fillStyle = '#1cc1e8';
 context.textAlign = 'center';
-
-context2.strokeStyle = '#fff';
-context2.fillStyle = '#1cc1e8';
 
 context.font = '20px "Microsoft YaHei"';
 
@@ -98,28 +128,30 @@ var drawBody = function() {
 var drawNews = function() {
   var that = this;
   that.from = 130;
-  drawCircle(context2, 1, 450, 320, 130);
   var inverval = setInterval(function() {
     if(that.from < 260) {
       that.from += 8;
       if(that.from >= 130 && that.from < 160) {
-        drawCircle(context2, 0, 450, 320, 180 - (that.from / 2));
+        drawCircle(context, 0, 450, 320, 180 - (that.from / 2));
       } else if(that.from > 160 && that.from < 220) {
-        drawPointLine(context2, 450, 320, 120, 120, (that.from - 20)/8);
+        drawPointLine(context, 450, 320, 120, 120, (that.from - 20)/8);
       } else if(that.from > 220 && that.from < 260) {
-        drawLine(context2, 0, 373, (that.from - 135) * 3, 150)
+        drawLine(context, 0, 373, (that.from - 135) * 3, 150)
       }
       if(that.from < 250) {
-        drawLine(context, 0, 200, that.from + 130, 500);
+        var obj = getCleclePoint(49, (that.from - 130) / 8 + 6, 450, 320, 130, -225);
+        var obj2 = getCleclePoint(49, (that.from - 130) / 8 + 6, 450, 320, 130, -54);
+        drawFreeLine(context, 200, 500 - that.from, obj.x, obj.y);
+        drawFreeLine(context, obj2.x, obj2.y, 700, that.from + 120);
       }
     }else {
-      context2.beginPath();
-      context2.arc(450, 320, 95, 1.6 * Math.PI, 1.9 * Math.PI, false);
-      context2.stroke();
+      context.beginPath();
+      context.arc(450, 320, 95, 1.6 * Math.PI, 1.9 * Math.PI, false);
+      context.stroke();
       drawText(context, '校园生存全攻略', 450, 590);
       clearInterval(inverval);
     }
-  }, 30);
+  }, 20);
 };
 
 var drawWall = function() {
@@ -156,11 +188,7 @@ var drawWall = function() {
       drawText(context, '生活就要画出来', 450, 590);
       clearInterval(inverval);
     }
-  }, 30);
+  }, 20);
 };
 
 drawBody();
-
-drawWall();
-
-//drawNews();
