@@ -15,6 +15,16 @@ context2.fillStyle = '#1cc1e8';
 
 context.font = '20px "Microsoft YaHei"';
 
+// 得到半圆弧上的点
+// 点的个数，第几个，圆心坐标，半径，起始角度
+var getCleclePoint = function(number, i, x, y, r, rotate) {
+  var rot = (rotate + 180/number * i) * Math.PI / 180;
+  var obj = {};
+  obj.x = r * Math.cos(rot) + x;
+  obj.y = r * Math.sin(rot) + y;
+  return obj;
+}
+
 var drawText = function(context, text, x, y) {
   context.fillStyle = '#fff';
   context.fillText(text, x, y);
@@ -47,17 +57,19 @@ var drawCircle = function(context, fill, x, y, r) {
   }
 }
 
+// 画扇形直线
+// 对象，起始坐标，起始位置，长度，角度
 var drawPointLine = function(context, x, y, s, lenth, rotate) {
   context.save();
   context.translate(x, y);
-  context.rotate(rotate * Math.PI / 180);//每小时旋转30度
+  context.rotate(rotate * Math.PI / 180);
   context.beginPath();
   context.moveTo(0, s);
   context.lineTo(0, s + lenth);
   context.stroke();
   context.closePath();
   context.restore();
-}
+};
 
 var drawLine = function(context, dirctive, x, y, width) {
   if(dirctive) {
@@ -69,6 +81,12 @@ var drawLine = function(context, dirctive, x, y, width) {
   }
   
   //context.closePath() //闭合路径
+  context.stroke();
+};
+
+var drawFreeLine = function(context, x1, y1, x2, y2) {
+  context.moveTo(x1, y1);
+  context.lineTo(x2, y2);
   context.stroke();
 };
 
@@ -84,7 +102,7 @@ var drawNews = function() {
   var inverval = setInterval(function() {
     if(that.from < 260) {
       that.from += 8;
-      if(that.from > 130 && that.from < 160) {
+      if(that.from >= 130 && that.from < 160) {
         drawCircle(context2, 0, 450, 320, 180 - (that.from / 2));
       } else if(that.from > 160 && that.from < 220) {
         drawPointLine(context2, 450, 320, 120, 120, (that.from - 20)/8);
@@ -104,6 +122,45 @@ var drawNews = function() {
   }, 30);
 };
 
+var drawWall = function() {
+  var that = this;
+  that.from = 0;
+  var inverval = setInterval(function() {
+    if(that.from < 30) {
+      if(that.from >= 0 && that.from < 10) {
+        var pos1 = getCleclePoint(10, that.from, 520, 170, 14, 200);
+        var pos2 = getCleclePoint(10, that.from, 470, 270, 10, 200);
+        drawFreeLine(context, pos1.x, pos1.y, pos2.x, pos2.y);
+        var pos3 = getCleclePoint(10, that.from, 470, 270, 4, 200);
+        var pos4 = getCleclePoint(10, that.from, 442, 327, 4, 200);
+        drawFreeLine(context, pos3.x, pos3.y, pos4.x, pos4.y);
+        var pos5 = getCleclePoint(10, that.from, 444, 327, 6, 60);
+        var pos6 = getCleclePoint(10, that.from, 530, 341, 6, 60);
+        drawFreeLine(context, pos5.x, pos5.y, pos6.x, pos6.y);
+        var pos7 = getCleclePoint(10, that.from, 530, 342, 6, 250);
+        var pos8 = getCleclePoint(10, that.from, 508, 390, 6, 250);
+        drawFreeLine(context, pos7.x, pos7.y, pos8.x, pos8.y);
+      }
+      if(that.from >= 10 && that.from < 20) {
+        var pos1 = getCleclePoint(10, that.from, 510, 390, 35, 300);
+        var pos2 = getCleclePoint(10, that.from, 360, 360, 30, 300);
+        drawFreeLine(context, pos1.x, pos1.y, pos2.x, pos2.y);
+      }
+      if(that.from >= 20 && that.from < 30) {
+        var localx = that.from * 18 - 15;
+        var localy = that.from * 4.3 + 300;
+        drawFreeLine(context, localx, localy, localx - 50, localy + 50);
+      }
+      that.from ++;
+    } else {
+      drawText(context, '生活就要画出来', 450, 590);
+      clearInterval(inverval);
+    }
+  }, 30);
+};
+
 drawBody();
 
-drawNews();
+drawWall();
+
+//drawNews();
