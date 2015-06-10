@@ -14,6 +14,9 @@
         margin-left: -450px;
         margin-top: -390px;
         display: block;
+        z-index: 3;
+      }
+      #scene2 {
         z-index: 2;
       }
 
@@ -29,6 +32,9 @@
     </style>
   </head>
   <body id="bg">
+    <canvas class="scene" id="scene2" width="900" height="740">
+      Your browser does not support the canvas element.
+    </canvas>
     <div class="scene">
       <canvas id="scene" width="900" height="740">
         Your browser does not support the canvas element.
@@ -37,7 +43,7 @@
         <a href="">登录</a> | 
         <a href="">常用链接</a> | 
         <a href="">加入我们</a> | 
-        <a href="">旧版入口</a> | 
+        <a href="">旧版入口</a>
       </div>
     </div>
   </body>

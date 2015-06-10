@@ -4,11 +4,12 @@ var el = function(name) {
 var toggle = 0;
 var bg = el('bg');
 var loader = ['music', 'book', 'minli', 'weipan', 'wall', 'news'];
-
+var img;
 (function() {
   for(var i = 0; i < loader.length; i ++) {
-    var images = new Image();
-    images.src = 'img/' + loader[i] + '.jpg';
+    img = new Image();
+
+    img.src = 'img/' + loader[i] + '.jpg';
   }
 })();
 el('scene').onmousemove = function(e) {
@@ -17,43 +18,52 @@ el('scene').onmousemove = function(e) {
 
   if(mouseX < 493 && mouseX > 410 && mouseY < 67 && mouseY > 0) {
     if(toggle !== 1) {  
-      clearCanvas();
+      clearCanvas(1);
+      drawImg('music');
+      drawText(context, '网络点播 无线传情', 450, 590);
       toggle = 1;
       bg.style.backgroundImage = 'url(img/music.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 785 && mouseX > 708 && mouseY < 226 && mouseY > 178) {
     if(toggle !== 2) {
-      clearCanvas();
+      clearCanvas(2);
+      drawImg('book');
+      drawText(context, '二手书籍交易平台', 450, 590);
       toggle = 2;
       bg.style.backgroundImage = 'url(img/book.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 785 && mouseX > 708 && mouseY < 554 && mouseY > 521) {
     if(toggle !== 3) {
-      clearCanvas();
+      clearCanvas(3);
+      drawImg('minli');
+      drawText(context, '网络文化工作室', 450, 590);
       toggle = 3;
       bg.style.backgroundImage = 'url(img/minli.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 478 && mouseX > 410 && mouseY < 730 && mouseY > 677) {
     if(toggle !== 4) {
-      clearCanvas();
+      clearCanvas(4);
+      drawImg('weipan');
+      drawText(context, '住在云端的贴心优盘', 450, 590);
       toggle = 4;
       bg.style.backgroundImage = 'url(img/weipan.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 194 && mouseX > 112 && mouseY < 554 && mouseY > 521) {
     if(toggle !== 5){
-      clearCanvas();
+      clearCanvas(5);
       drawWall();
+      drawText(context, '生活就要画出来', 450, 590);
       toggle = 5;
       bg.style.backgroundImage = 'url(img/wall.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 192 && mouseX > 112 && mouseY < 226 && mouseY > 178) {
     if(toggle !== 6){
-      clearCanvas();
+      clearCanvas(6);
       drawNews();
       toggle = 6;
       bg.style.backgroundImage = 'url(img/news.jpg)';
@@ -65,7 +75,7 @@ el('scene').onmousemove = function(e) {
       setTimeout(function() {
         if(!toggle){
           clearCanvas();
-          drawOnline();
+          drawImg('word');
           bg.style.backgroundImage = 'url(img/bg.jpg)';
         }
       }, 1000);
@@ -76,8 +86,16 @@ el('scene').onmousemove = function(e) {
 };
 
 var context =  el('scene').getContext('2d');
+var context2 =  el('scene2').getContext('2d');
 
-var clearCanvas = function() {
+var clearCanvas = function(i) {
+  context2.clearRect(0, 0, 900, 740);
+  //设置旋转角度
+  var rotate = (((i - 2) * 60 - 30) * (Math.PI) / 180);//弧度   角度*Math.PI/180
+  var dx = 290 * Math.cos(rotate);
+  var dy = 290 * Math.sin(rotate);
+  context.fillStyle = '#fff';
+  drawCircle(context2, 0, dx + 450, dy + 370, 20);
   context.beginPath();
   context.arc(450, 370, 290, 0, 2 * Math.PI, false);
   context.clip();
@@ -85,6 +103,8 @@ var clearCanvas = function() {
 };
 
 context.strokeStyle = '#fff';
+context2.strokeStyle = '#fff';
+context2.lineWidth = 6;
 context.fillStyle = '#1cc1e8';
 context.textAlign = 'center';
 
@@ -236,14 +256,21 @@ var drawWall = function() {
   }, 20);
 };
 
-var drawOnline = function() {
-  var img = new Image();
-  img.src = "img/logo_word.png";
-  img.onload = function() {
-    context.drawImage(img, 280, 180);
+var drawImg = function(text) {
+  img = new Image();
+  img.src = 'img/logo_' + text + '.png';
+  if(text === 'word') {
+    img.onload = function() {
+      context.drawImage(img, 280, 180);
+    }
+  } else {
+    img.onload = function() {
+      context.drawImage(img, 200, 130);
+    }
   }
+  
 };
 
 drawBody();
 
-drawOnline();
+drawImg('word');
