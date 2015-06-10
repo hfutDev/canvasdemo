@@ -2,32 +2,45 @@ var el = function(name) {
   return document.getElementById(name);
 };
 var toggle = 0;
+var bg = el('bg');
+var loader = ['music', 'book', 'minli', 'weipan', 'wall', 'news'];
+
+(function() {
+  for(var i = 0; i < loader.length; i ++) {
+    var images = new Image();
+    images.src = 'img/' + loader[i] + '.jpg';
+  }
+})();
 el('scene').onmousemove = function(e) {
   var mouseX = e.layerX;
   var mouseY = e.layerY;
-  // 音乐点播
+
   if(mouseX < 493 && mouseX > 410 && mouseY < 67 && mouseY > 0) {
     if(toggle !== 1) {  
       clearCanvas();
       toggle = 1;
+      bg.style.backgroundImage = 'url(img/music.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 785 && mouseX > 708 && mouseY < 226 && mouseY > 178) {
     if(toggle !== 2) {
       clearCanvas();
       toggle = 2;
+      bg.style.backgroundImage = 'url(img/book.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 785 && mouseX > 708 && mouseY < 554 && mouseY > 521) {
     if(toggle !== 3) {
       clearCanvas();
       toggle = 3;
+      bg.style.backgroundImage = 'url(img/minli.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 478 && mouseX > 410 && mouseY < 730 && mouseY > 677) {
     if(toggle !== 4) {
       clearCanvas();
       toggle = 4;
+      bg.style.backgroundImage = 'url(img/weipan.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 194 && mouseX > 112 && mouseY < 554 && mouseY > 521) {
@@ -35,6 +48,7 @@ el('scene').onmousemove = function(e) {
       clearCanvas();
       drawWall();
       toggle = 5;
+      bg.style.backgroundImage = 'url(img/wall.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 192 && mouseX > 112 && mouseY < 226 && mouseY > 178) {
@@ -42,6 +56,7 @@ el('scene').onmousemove = function(e) {
       clearCanvas();
       drawNews();
       toggle = 6;
+      bg.style.backgroundImage = 'url(img/news.jpg)';
     }
     this.style.cursor = 'pointer';
   } else {
@@ -51,6 +66,7 @@ el('scene').onmousemove = function(e) {
         if(!toggle){
           clearCanvas();
           drawOnline();
+          bg.style.backgroundImage = 'url(img/bg.jpg)';
         }
       }, 1000);
     }
@@ -118,13 +134,13 @@ var drawCircle = function(context, fill, x, y, r) {
 
 // 画扇形直线
 // 对象，起始坐标，起始位置，长度，角度
-var drawPointLine = function(context, x, y, s, lenth, rotate) {
+var drawPointLine = function(context, x, y, s, length, rotate) {
   context.save();
   context.translate(x, y);
   context.rotate(rotate * Math.PI / 180);
   context.beginPath();
   context.moveTo(0, s);
-  context.lineTo(0, s + lenth);
+  context.lineTo(0, s + length);
   context.stroke();
   context.closePath();
   context.restore();

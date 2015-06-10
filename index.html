@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <style type="text/css">
       body {
-        background-color: #ccc;
+        background: url(img/bg.jpg) no-repeat center center;
+        background-size: cover;
       }
       .scene {
         position: absolute;
@@ -13,16 +14,32 @@
         margin-left: -450px;
         margin-top: -390px;
         display: block;
-      }
-      #scene {
         z-index: 2;
+      }
+
+      .footer {
+        text-align: center;
+        color: #fff;
+        margin-top: 20px;
+      }
+      .footer a {
+        color: #fff;
+        text-decoration: none;
       }
     </style>
   </head>
-  <body>
-    <canvas class="scene" id="scene" width="900" height="740">
-      Your browser does not support the canvas element.
-    </canvas>
+  <body id="bg">
+    <div class="scene">
+      <canvas id="scene" width="900" height="740">
+        Your browser does not support the canvas element.
+      </canvas>
+      <div class="footer">
+        <a href="">登录</a> | 
+        <a href="">常用链接</a> | 
+        <a href="">加入我们</a> | 
+        <a href="">旧版入口</a> | 
+      </div>
+    </div>
   </body>
   <script type="text/javascript" src="js/base.js"></script>
 </html>
