@@ -6,26 +6,55 @@ el('scene').onmousemove = function(e) {
   var mouseX = e.layerX;
   var mouseY = e.layerY;
   // 音乐点播
-  if(mouseX < 493 && mouseX > 410 && mouseY < 67 && mouseY > 0 && toggle !== 1) {
-    clearCanvas();
-    toggle = 1;
-  } else if(mouseX < 785 && mouseX > 708 && mouseY < 226 && mouseY > 178 && toggle !== 2) {
-    clearCanvas();
-    toggle = 2;
-  } else if(mouseX < 785 && mouseX > 708 && mouseY < 554 && mouseY > 521 && toggle !== 3) {
-    clearCanvas();
-    toggle = 3;
-  } else if(mouseX < 478 && mouseX > 410 && mouseY < 730 && mouseY > 677 && toggle !== 4) {
-    clearCanvas();
-    toggle = 4;
-  } else if(mouseX < 194 && mouseX > 112 && mouseY < 554 && mouseY > 521 && toggle !== 5) {
-    clearCanvas();
-    drawWall();
-    toggle = 5;
-  } else if(mouseX < 192 && mouseX > 112 && mouseY < 226 && mouseY > 178 && toggle !== 6) {
-    clearCanvas();
-    drawNews();
-    toggle = 6;
+  if(mouseX < 493 && mouseX > 410 && mouseY < 67 && mouseY > 0) {
+    if(toggle !== 1) {  
+      clearCanvas();
+      toggle = 1;
+    }
+    this.style.cursor = 'pointer';
+  } else if(mouseX < 785 && mouseX > 708 && mouseY < 226 && mouseY > 178) {
+    if(toggle !== 2) {
+      clearCanvas();
+      toggle = 2;
+    }
+    this.style.cursor = 'pointer';
+  } else if(mouseX < 785 && mouseX > 708 && mouseY < 554 && mouseY > 521) {
+    if(toggle !== 3) {
+      clearCanvas();
+      toggle = 3;
+    }
+    this.style.cursor = 'pointer';
+  } else if(mouseX < 478 && mouseX > 410 && mouseY < 730 && mouseY > 677) {
+    if(toggle !== 4) {
+      clearCanvas();
+      toggle = 4;
+    }
+    this.style.cursor = 'pointer';
+  } else if(mouseX < 194 && mouseX > 112 && mouseY < 554 && mouseY > 521) {
+    if(toggle !== 5){
+      clearCanvas();
+      drawWall();
+      toggle = 5;
+    }
+    this.style.cursor = 'pointer';
+  } else if(mouseX < 192 && mouseX > 112 && mouseY < 226 && mouseY > 178) {
+    if(toggle !== 6){
+      clearCanvas();
+      drawNews();
+      toggle = 6;
+    }
+    this.style.cursor = 'pointer';
+  } else {
+    if(toggle){
+      toggle = 0;
+      setTimeout(function() {
+        if(!toggle){
+          clearCanvas();
+          drawOnline();
+        }
+      }, 1000);
+    }
+    this.style.cursor = 'default';
   }
 
 };
@@ -191,4 +220,14 @@ var drawWall = function() {
   }, 20);
 };
 
+var drawOnline = function() {
+  var img = new Image();
+  img.src = "img/logo_word.png";
+  img.onload = function() {
+    context.drawImage(img, 280, 180);
+  }
+};
+
 drawBody();
+
+drawOnline();
