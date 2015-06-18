@@ -1,6 +1,49 @@
 var el = function(name) {
   return document.getElementById(name);
 };
+
+var modal = el('modal');
+var modalClose = el('modal-close');
+var loginBtn = el('modal-close');
+var navBtn = el('nav-btn');
+var newsBtn = el('news-btn');
+var modalInfo = document.querySelectorAll('.bottom-btn');
+
+modalClose.onclick = function() {
+  var i = 0;
+  var interval = setInterval(function() {
+    i += 5;
+    if(i === 105) {
+      clearInterval(interval);
+      return;
+    }
+    modal.style.top = i + '%';
+  }, 5);
+  if(modalName) el(modalName).className = 'modal-info ' + modalName;
+};
+
+var openModal = function(id) {
+  var i = 100;
+  var interval = setInterval(function() {
+    i -= 5;
+    if(i === -5) {
+      clearInterval(interval);
+      return;
+    }
+    modal.style.top = i + '%';
+  }, 5);
+};
+
+var modalName = '';
+for(var i = 0; i < modalInfo.length; i ++) {
+  modalInfo[i].onclick = function(e) {
+    modalName = 'modal-' + e.target.id.replace('-btn','');
+    openModal();
+    el(modalName).className += ' active';
+  };
+}
+
+
 var toggle = 0;
 var bg = el('bg');
 var loader = ['music', 'book', 'minli', 'weipan', 'wall', 'news'];
@@ -19,10 +62,10 @@ el('scene').onmousemove = function(e) {
   if(mouseX < 493 && mouseX > 410 && mouseY < 67 && mouseY > 0) {
     if(toggle !== 1) {  
       clearCanvas(1);
-      drawImg('music');
-      drawText(context, '网络点播 无线传情', 450, 590);
+      drawImg('minli');
+      drawText(context, '思政文化平台', 450, 590);
       toggle = 1;
-      bg.style.backgroundImage = 'url(img/music.jpg)';
+      bg.style.backgroundImage = 'url(img/minli.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 785 && mouseX > 708 && mouseY < 226 && mouseY > 178) {
@@ -37,10 +80,10 @@ el('scene').onmousemove = function(e) {
   } else if(mouseX < 785 && mouseX > 708 && mouseY < 554 && mouseY > 521) {
     if(toggle !== 3) {
       clearCanvas(3);
-      drawImg('minli');
-      drawText(context, '网络文化工作室', 450, 590);
+      drawImg('music');
+      drawText(context, '网络点播 无线传情', 450, 590);
       toggle = 3;
-      bg.style.backgroundImage = 'url(img/minli.jpg)';
+      bg.style.backgroundImage = 'url(img/music.jpg)';
     }
     this.style.cursor = 'pointer';
   } else if(mouseX < 478 && mouseX > 410 && mouseY < 730 && mouseY > 677) {
@@ -127,7 +170,7 @@ var drawText = function(context, text, x, y) {
 }
 
 var drawTitle = function(context) {
-  var arr = ['音乐点播', '易书网', '明理苑', '微盘', '涂鸦墙', '情报站'];
+  var arr = ['思政·明理苑', '学习·易书', '音乐·点播', '云端·微盘', '休闲·涂鸦', '服务·情报'];
 
   for (var i = 0; i < 6; i ++) {
     //设置旋转角度
@@ -138,7 +181,7 @@ var drawTitle = function(context) {
     var dy = 310 * Math.sin(rotate);
     context.fillStyle = '#fff';
     drawCircle(context, 1, dx + 450, dy + 370, 3);
-    drawText(context, arr[i], x + 450, y + 370);
+    drawText(context, arr[i], x + 450, y + 375);
   }
 } 
 

@@ -3,6 +3,11 @@
     <title></title>
     <meta charset="utf-8">
     <style type="text/css">
+      html,body {
+        font-family : 'Microsoft YaHei';
+        margin: 0;
+        padding: 0;
+      }
       body {
         background: url(img/bg.jpg) no-repeat center center;
         background-size: cover;
@@ -29,6 +34,79 @@
         color: #fff;
         text-decoration: none;
       }
+      .modal {
+        position: fixed;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        top: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+      }
+      .modal-close {
+        display: inline-block;
+        width: 60px;
+        padding: 15px 0;
+        position: absolute;
+        left: 50%;
+        margin-left: -30px;
+        text-align: center;
+        border: 3px #111 solid;
+        border-radius: 50%;
+        top: 5%;
+      }
+      .modal-info {
+        margin: 15% auto 0;
+        display: none;
+      }
+      .modal-info.active {
+        display: block;
+      }
+      .modal-info h2 {
+        font-size: 40px;
+        font-weight: normal;
+        color: #48b7fb;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .modal-login {
+        width: 300px;
+        font-size: 18px;
+      }
+      .modal-login label {
+        margin-bottom: 20px;
+        display: block;
+      }
+      .modal-login label.modal-login-inline {
+        display: inline;
+      }
+      .modal-login label span {
+        width: 30%;
+        display: inline-block;
+      }
+      .modal-login label input {
+        width: 70%;
+        display: inline-block;
+        border: 1px #222 solid;
+        line-height: 26px;
+      }
+      .modal-login label input.modal-login-save {
+        width: auto;
+      }
+      .modal-login-forget {
+        float: right;
+        color: #48b7fb;
+      }
+      .modal-login-btn {
+        margin: 30px 0;
+        padding: 5px 15px;
+        font-size: 20px;
+        border: 3px #48b7fb solid;
+        background-color: transparent;
+        cursor: pointer;
+      }
+      .modal-login-btn.first {
+        margin-right: 95px;
+      }
     </style>
   </head>
   <body id="bg">
@@ -40,10 +118,38 @@
         Your browser does not support the canvas element.
       </canvas>
       <div class="footer">
-        <a href="">登录</a> | 
-        <a href="">常用链接</a> | 
-        <a href="">加入我们</a> | 
-        <a href="">旧版入口</a>
+        <a id="login-btn" class="bottom-btn" href="javascript:void(0)">登录</a> | 
+        <a id="nav-btn" class="bottom-btn" href="javascript:void(0)">网址导航</a> |
+        <a id="news-btn" class="bottom-btn" href="javascript:void(0)">新闻资讯</a> | 
+        <a href="http://newmly.hfutonline.net/">网络文化工作室</a> |  
+        <a href="http://talent.hfutonline.net/">加入我们</a> | 
+        <a href="http://online.hfut.edu.cn/">旧版入口</a>
+      </div>
+    </div>
+    <div class="modal" id="modal">
+      <a class="modal-close" id="modal-close" href="javascript:void(0)">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 1024 1024"><g id="icomoon-ignore">
+        </g>
+        <path d="M614 512l358 354-106 106-354-358-358 358-102-106 354-354-354-358 102-104 358 358 354-358 106 106z"></path>
+        </svg>
+      </a>
+      <form class="modal-info modal-login" id="modal-login">
+        <h2>登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</h2>
+        <label><span>用户名</span><input type="text"></label>
+        <label><span>密&nbsp;&nbsp;&nbsp;码</span><input type="password"></label>
+        <div>
+          <label class="modal-login-inline">
+            <input class="modal-login-save" type="checkbox">记住我
+          </label>
+          <a href="" class="modal-login-forget">忘记密码？</a>
+        </div>
+          <button class="modal-login-btn first" id="modal-login-sub">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+          <button class="modal-login-btn" id="modal-login-reg">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+        </div>
+      </form>
+      <div class="modal-info modal-nav" id="modal-nav">
+      </div>
+      <div class="modal-info modal-news" id="modal-news">
       </div>
     </div>
   </body>
