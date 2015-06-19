@@ -6,6 +6,7 @@ html,body {
 body {
   background: url(../img/bg.jpg) no-repeat center center;
   background-size: cover;
+  min-height: 800px;
 }
 a {
   text-decoration: none;
@@ -16,9 +17,8 @@ a:hover {
 .scene {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 10px;
   margin-left: -450px;
-  margin-top: -390px;
   display: block;
   z-index: 3;
 }
