@@ -55,8 +55,8 @@ var img;
   }
 })();
 el('scene').onmousemove = function(e) {
-  var mouseX = e.layerX;
-  var mouseY = e.layerY;
+  var mouseX = e.offsetX;
+  var mouseY = e.offsetY;
 
   if(mouseX < 493 && mouseX > 410 && mouseY < 67 && mouseY > 0) {
     if(toggle !== 1) {  
