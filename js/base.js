@@ -141,9 +141,6 @@ el('scene').onmousemove = function(e) {
       }, 1000);
     }
     this.style.cursor = 'default';
-    this.onclick = function() {
-      window.open('http://baidu.com');
-    }
   }
 
 };
