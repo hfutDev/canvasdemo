@@ -1,113 +1,10 @@
 <html>
   <head>
-    <title></title>
+    <title>工大学子 - 合肥工业大学学生门户社区</title>
     <meta charset="utf-8">
-    <style type="text/css">
-      html,body {
-        font-family : 'Microsoft YaHei';
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background: url(img/bg.jpg) no-repeat center center;
-        background-size: cover;
-      }
-      .scene {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -450px;
-        margin-top: -390px;
-        display: block;
-        z-index: 3;
-      }
-      #scene2 {
-        z-index: 2;
-      }
-
-      .footer {
-        text-align: center;
-        color: #fff;
-        margin-top: 20px;
-      }
-      .footer a {
-        color: #fff;
-        text-decoration: none;
-      }
-      .modal {
-        position: fixed;
-        z-index: 4;
-        width: 100%;
-        height: 100%;
-        top: 100%;
-        background-color: rgba(255, 255, 255, 0.95);
-      }
-      .modal-close {
-        display: inline-block;
-        width: 60px;
-        padding: 15px 0;
-        position: absolute;
-        left: 50%;
-        margin-left: -30px;
-        text-align: center;
-        border: 3px #111 solid;
-        border-radius: 50%;
-        top: 5%;
-      }
-      .modal-info {
-        margin: 15% auto 0;
-        display: none;
-      }
-      .modal-info.active {
-        display: block;
-      }
-      .modal-info h2 {
-        font-size: 40px;
-        font-weight: normal;
-        color: #48b7fb;
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      .modal-login {
-        width: 300px;
-        font-size: 18px;
-      }
-      .modal-login label {
-        margin-bottom: 20px;
-        display: block;
-      }
-      .modal-login label.modal-login-inline {
-        display: inline;
-      }
-      .modal-login label span {
-        width: 30%;
-        display: inline-block;
-      }
-      .modal-login label input {
-        width: 70%;
-        display: inline-block;
-        border: 1px #222 solid;
-        line-height: 26px;
-      }
-      .modal-login label input.modal-login-save {
-        width: auto;
-      }
-      .modal-login-forget {
-        float: right;
-        color: #48b7fb;
-      }
-      .modal-login-btn {
-        margin: 30px 0;
-        padding: 5px 15px;
-        font-size: 20px;
-        border: 3px #48b7fb solid;
-        background-color: transparent;
-        cursor: pointer;
-      }
-      .modal-login-btn.first {
-        margin-right: 95px;
-      }
-    </style>
+    <meta name="keywords" content="工大学子,合肥工业大学,工大学子 - 合肥工业大学学生门户社区,大学生发展网络教育中心,合工大,合工大工大学子">
+    <meta name="description" content="工大学子为广大学生提供一个集学习、休闲、娱乐等为一体的交互式多媒体网络平台。社区共包括CIC博客、BBS斛兵泛舟站、明理苑、iMAG网络画刊、新生情报站、Sunny Radio校园网络电台、VOD视频点播、FTP影视音乐下载、个人主页、大学新鲜人等九个特色站点。其中明理苑更包括青春中国、人人空间、知艺星空、绿色在线、科学绿洲、贫困财富、创新中国、在线党校等在内的18个特色栏目。">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body id="bg">
     <canvas class="scene" id="scene2" width="900" height="740">
@@ -133,21 +30,48 @@
         <path d="M614 512l358 354-106 106-354-358-358 358-102-106 354-354-354-358 102-104 358 358 354-358 106 106z"></path>
         </svg>
       </a>
-      <form class="modal-info modal-login" id="modal-login">
+      <form class="modal-info modal-login" id="modal-login" action="http://user.hfutonline.net/login?from=http://online.hfut.edu.cn" method="post">
         <h2>登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</h2>
-        <label><span>用户名</span><input type="text"></label>
-        <label><span>密&nbsp;&nbsp;&nbsp;码</span><input type="password"></label>
+        <label><span>用户名</span><input name="username" type="text"></label>
+        <label><span>密&nbsp;&nbsp;&nbsp;码</span><input name="password" type="password"></label>
         <div>
           <label class="modal-login-inline">
             <input class="modal-login-save" type="checkbox">记住我
           </label>
           <a href="" class="modal-login-forget">忘记密码？</a>
         </div>
-          <button class="modal-login-btn first" id="modal-login-sub">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
-          <button class="modal-login-btn" id="modal-login-reg">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
-        </div>
+        <button class="modal-login-btn first" id="modal-login-sub">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+        <button class="modal-login-btn" id="modal-login-reg">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
       </form>
       <div class="modal-info modal-nav" id="modal-nav">
+        <div class="modal-nav-item">
+          <span>思想·观点</span>
+          <a href="http://online.hfut.edu.cn/index/works">专题网站</a>
+          <a href="http://hsxd.hfutonline.net/">红色星动</a>
+        </div>
+        <div class="modal-nav-item">
+          <span>学习·成长</span>
+          <a href="">读书笔记</a>
+          <a href="http://votesys.hfutonline.net/index/vote1415">标兵风采</a>
+          <a href="http://dxsxlgh.hfut.edu.cn/welcome/">心理关爱</a>
+        </div>
+        <div class="modal-nav-item">
+          <span>生活·服务</span>
+          <div>
+            <a href="http://xszz.hfut.edu.cn/">资助中心</a>
+            <a href="http://gdjy.hfut.edu.cn/">就业中心</a>
+            <a href="http://zczx.hfut.edu.cn/info.php">注册中心</a>
+            <a href="http://user.hfut.edu.cn/repair/index.php?action=search&ts=look&id=812">网络报修</a>
+            <a href="http://my.hfut.edu.cn/">本科教学</a>
+            <a href="http://210.45.240.31/">研究生教学</a>
+          </div>
+        </div>
+        <div class="modal-nav-item">
+          <span>互动·博客</span>
+          <a href="http://online.hfut.edu.cn/index/guideblog">斛兵导博</a>
+          <a href="http://weibo.com/u/2307523172">微博/微信</a>
+          <a href="http://bbs.hfut.edu.cn/css">BBS</a>
+        </div>
       </div>
       <div class="modal-info modal-news" id="modal-news">
       </div>

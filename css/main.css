@@ -1,0 +1,141 @@
+html,body {
+  font-family : 'Microsoft YaHei';
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url(../img/bg.jpg) no-repeat center center;
+  background-size: cover;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.scene {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -450px;
+  margin-top: -390px;
+  display: block;
+  z-index: 3;
+}
+#scene2 {
+  z-index: 2;
+}
+.footer {
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
+}
+.footer a {
+  color: #fff;
+}
+.modal {
+  position: fixed;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+.modal-close {
+  display: inline-block;
+  width: 60px;
+  padding: 15px 0;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  text-align: center;
+  border: 3px #111 solid;
+  border-radius: 50%;
+  top: 5%;
+}
+.modal-info {
+  margin: 15% auto 0;
+  display: none;
+}
+.modal-info.active {
+  display: block;
+}
+.modal-info h2 {
+  font-size: 40px;
+  font-weight: normal;
+  color: #48b7fb;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.modal-login {
+  width: 300px;
+  font-size: 18px;
+}
+.modal-login label {
+  margin-bottom: 20px;
+  display: block;
+}
+.modal-login label.modal-login-inline {
+  display: inline;
+}
+.modal-login label span {
+  width: 30%;
+  display: inline-block;
+}
+.modal-login label input {
+  width: 70%;
+  display: inline-block;
+  border: 1px #222 solid;
+  line-height: 26px;
+}
+.modal-login label input.modal-login-save {
+  width: auto;
+}
+.modal-login-forget {
+  float: right;
+  color: #48b7fb;
+}
+.modal-login-btn {
+  margin: 30px 0;
+  padding: 5px 15px;
+  font-size: 20px;
+  border: 3px #48b7fb solid;
+  background-color: transparent;
+  cursor: pointer;
+}
+.modal-login-btn.first {
+  margin-right: 95px;
+}
+.modal-nav {
+  width: 600px;
+  border-top: 1px #999 solid;
+}
+.modal-nav-item {
+  line-height: 40px;
+  border-bottom: 1px #999 solid;
+}
+.modal-nav-item span {
+  float: left;
+  padding: 20px 40px 20px 0px;
+  font-size: 26px;
+  color: #48b7fb;
+  display: inline-block;
+}
+.modal-nav-item a {
+  float: left;
+  color: #333;
+  font-size: 20px;
+  padding: 20px 30px;
+  display: inline-block;
+}
+.modal-nav-item div {
+  float: left;
+  max-width: 440px;
+}
+.modal-nav-item:after {
+  content: '.';
+  display: block;
+  height: 0; 
+  clear: both; 
+  visibility: hidden;
+};

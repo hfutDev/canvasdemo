@@ -22,7 +22,7 @@ modalClose.onclick = function() {
   if(modalName) el(modalName).className = 'modal-info ' + modalName;
 };
 
-var openModal = function(id) {
+var openModal = function() {
   var i = 100;
   var interval = setInterval(function() {
     i -= 5;
