@@ -327,3 +327,6 @@ var drawImg = function(text) {
 drawBody();
 
 drawImg('word');
+
+document.execCommand("BackgroundImageCache", false, true);
+
