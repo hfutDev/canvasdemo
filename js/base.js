@@ -43,7 +43,6 @@ for(var i = 0; i < modalInfo.length; i ++) {
   };
 }
 
-
 var toggle = 0;
 var bg = el('bg');
 var loader = ['music', 'book', 'minli', 'weipan', 'wall', 'news'];
@@ -68,6 +67,9 @@ el('scene').onmousemove = function(e) {
       bg.style.backgroundImage = 'url(img/minli.jpg)';
     }
     this.style.cursor = 'pointer';
+    this.onclick = function() {
+      window.open('http://mly.hfutonline.net/index.html');
+    }
   } else if(mouseX < 785 && mouseX > 708 && mouseY < 226 && mouseY > 178) {
     if(toggle !== 2) {
       clearCanvas(2);
@@ -77,6 +79,9 @@ el('scene').onmousemove = function(e) {
       bg.style.backgroundImage = 'url(img/book.jpg)';
     }
     this.style.cursor = 'pointer';
+    this.onclick = function() {
+      window.open('http://book.hfutonline.net/');
+    }
   } else if(mouseX < 785 && mouseX > 708 && mouseY < 554 && mouseY > 521) {
     if(toggle !== 3) {
       clearCanvas(3);
@@ -86,6 +91,9 @@ el('scene').onmousemove = function(e) {
       bg.style.backgroundImage = 'url(img/music.jpg)';
     }
     this.style.cursor = 'pointer';
+    this.onclick = function() {
+      window.open('http://sunnyradio.hfutonline.net/radio/diange');
+    }
   } else if(mouseX < 478 && mouseX > 410 && mouseY < 730 && mouseY > 677) {
     if(toggle !== 4) {
       clearCanvas(4);
@@ -95,6 +103,9 @@ el('scene').onmousemove = function(e) {
       bg.style.backgroundImage = 'url(img/weipan.jpg)';
     }
     this.style.cursor = 'pointer';
+    this.onclick = function() {
+      window.open('http://upan.hfutonline.net/upload');
+    }
   } else if(mouseX < 194 && mouseX > 112 && mouseY < 554 && mouseY > 521) {
     if(toggle !== 5){
       clearCanvas(5);
@@ -104,6 +115,9 @@ el('scene').onmousemove = function(e) {
       bg.style.backgroundImage = 'url(img/wall.jpg)';
     }
     this.style.cursor = 'pointer';
+    this.onclick = function() {
+      window.open('http://sketch.hfutonline.net/sketch/index');
+    }
   } else if(mouseX < 192 && mouseX > 112 && mouseY < 226 && mouseY > 178) {
     if(toggle !== 6){
       clearCanvas(6);
@@ -112,6 +126,9 @@ el('scene').onmousemove = function(e) {
       bg.style.backgroundImage = 'url(img/news.jpg)';
     }
     this.style.cursor = 'pointer';
+    this.onclick = function() {
+      window.open('http://newer.hfutonline.net/');
+    }
   } else {
     if(toggle){
       toggle = 0;
@@ -124,6 +141,9 @@ el('scene').onmousemove = function(e) {
       }, 1000);
     }
     this.style.cursor = 'default';
+    this.onclick = function() {
+      window.open('http://baidu.com');
+    }
   }
 
 };
