@@ -46,11 +46,6 @@ for(var i = 0; i < modalInfo.length; i ++) {
 var toggle = 0;
 var bg = el('bg');
 var loader = ['music', 'book', 'minli', 'weipan', 'wall', 'news'];
-(function() {
-  for(var i = 0; i < loader.length; i ++) {
-    new Image().src = 'img/' + loader[i] + '.jpg';
-  }
-})();
 el('scene').onmousemove = function(e) {
   var mouseX = e.offsetX;
   var mouseY = e.offsetY;

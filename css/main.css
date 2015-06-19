@@ -10,23 +10,27 @@ body {
   min-height: 800px;
 }
 /*background*/
-body.bg-minli {
-  background-image: url(../img/minli.jpg);
+.bg-minli {
+  background-image: url(../img/minli.jpg)!important;
 }
-body.bg-book {
-  background-image: url(../img/book.jpg);
+.bg-book {
+  background-image: url(../img/book.jpg)!important;
 }
-body.bg-music {
-  background-image: url(../img/music.jpg);
+.bg-music {
+  background-image: url(../img/music.jpg)!important;
 }
-body.bg-weipan {
-  background-image: url(../img/weipan.jpg);
+.bg-weipan {
+  background-image: url(../img/weipan.jpg)!important;
 }
-body.bg-wall {
-  background-image: url(../img/wall.jpg);
+.bg-wall {
+  background-image: url(../img/wall.jpg)!important;
 }
-body.bg-news {
-  background-image: url(../img/news.jpg);
+.bg-news {
+  background-image: url(../img/news.jpg)!important;
+}
+.cache {
+  visibility: hidden;
+  height: 0;
 }
 a {
   text-decoration: none;
