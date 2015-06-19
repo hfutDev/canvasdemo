@@ -2,11 +2,31 @@ html,body {
   font-family : 'Microsoft YaHei';
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 body {
   background: url(../img/bg.jpg) no-repeat center center;
   background-size: cover;
   min-height: 800px;
+}
+/*background*/
+body.bg-minli {
+  background-image: url(../img/minli.jpg);
+}
+body.bg-book {
+  background-image: url(../img/book.jpg);
+}
+body.bg-music {
+  background-image: url(../img/music.jpg);
+}
+body.bg-weipan {
+  background-image: url(../img/weipan.jpg);
+}
+body.bg-wall {
+  background-image: url(../img/wall.jpg);
+}
+body.bg-news {
+  background-image: url(../img/news.jpg);
 }
 a {
   text-decoration: none;

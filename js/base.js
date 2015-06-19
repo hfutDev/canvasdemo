@@ -64,7 +64,7 @@ el('scene').onmousemove = function(e) {
       drawImg('minli');
       drawText(context, '思政文化平台', 450, 590);
       toggle = 1;
-      bg.style.backgroundImage = 'url(img/minli.jpg)';
+      bg.className = 'bg-minli';
     }
     this.style.cursor = 'pointer';
     this.onclick = function() {
@@ -76,7 +76,7 @@ el('scene').onmousemove = function(e) {
       drawImg('book');
       drawText(context, '二手书籍交易平台', 450, 590);
       toggle = 2;
-      bg.style.backgroundImage = 'url(img/book.jpg)';
+      bg.className = 'bg-book';
     }
     this.style.cursor = 'pointer';
     this.onclick = function() {
@@ -88,7 +88,7 @@ el('scene').onmousemove = function(e) {
       drawImg('music');
       drawText(context, '网络点播 无线传情', 450, 590);
       toggle = 3;
-      bg.style.backgroundImage = 'url(img/music.jpg)';
+      bg.className = 'bg-music';
     }
     this.style.cursor = 'pointer';
     this.onclick = function() {
@@ -100,7 +100,7 @@ el('scene').onmousemove = function(e) {
       drawImg('weipan');
       drawText(context, '住在云端的贴心优盘', 450, 590);
       toggle = 4;
-      bg.style.backgroundImage = 'url(img/weipan.jpg)';
+      bg.className = 'bg-weipan';
     }
     this.style.cursor = 'pointer';
     this.onclick = function() {
@@ -112,7 +112,7 @@ el('scene').onmousemove = function(e) {
       drawWall();
       drawText(context, '生活就要画出来', 450, 590);
       toggle = 5;
-      bg.style.backgroundImage = 'url(img/wall.jpg)';
+      bg.className = 'bg-wall';
     }
     this.style.cursor = 'pointer';
     this.onclick = function() {
@@ -123,7 +123,7 @@ el('scene').onmousemove = function(e) {
       clearCanvas(6);
       drawNews();
       toggle = 6;
-      bg.style.backgroundImage = 'url(img/news.jpg)';
+      bg.className = 'bg-news';
     }
     this.style.cursor = 'pointer';
     this.onclick = function() {
@@ -136,7 +136,7 @@ el('scene').onmousemove = function(e) {
         if(!toggle){
           clearCanvas();
           drawImg('word');
-          bg.style.backgroundImage = 'url(img/bg.jpg)';
+          bg.className = '';
         }
       }, 1000);
     }
