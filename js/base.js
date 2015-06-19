@@ -46,12 +46,9 @@ for(var i = 0; i < modalInfo.length; i ++) {
 var toggle = 0;
 var bg = el('bg');
 var loader = ['music', 'book', 'minli', 'weipan', 'wall', 'news'];
-var img;
 (function() {
   for(var i = 0; i < loader.length; i ++) {
-    img = document.createElement('div');
-
-    img.style.backgroundImage = 'url(' + loader[i] + '.jpg)';
+    new Image().src = 'img/' + loader[i] + '.jpg';
   }
 })();
 el('scene').onmousemove = function(e) {
