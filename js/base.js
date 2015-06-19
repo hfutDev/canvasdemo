@@ -1,3 +1,5 @@
+document.execCommand("BackgroundImageCache", false, true);
+
 var el = function(name) {
   return document.getElementById(name);
 };
@@ -327,6 +329,3 @@ var drawImg = function(text) {
 drawBody();
 
 drawImg('word');
-
-document.execCommand("BackgroundImageCache", false, true);
-
