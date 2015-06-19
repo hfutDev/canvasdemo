@@ -49,9 +49,9 @@ var loader = ['music', 'book', 'minli', 'weipan', 'wall', 'news'];
 var img;
 (function() {
   for(var i = 0; i < loader.length; i ++) {
-    img = new Image();
+    img = document.createElement('div');
 
-    img.src = 'img/' + loader[i] + '.jpg';
+    img.style.backgroundImage = 'url(' + loader[i] + '.jpg)';
   }
 })();
 el('scene').onmousemove = function(e) {
