@@ -49,8 +49,8 @@ var toggle = 0;
 var bg = el('bg');
 var loader = ['music', 'book', 'minli', 'weipan', 'wall', 'news'];
 el('scene').onmousemove = function(e) {
-  var mouseX = e.offsetX;
-  var mouseY = e.offsetY;
+  var mouseX = e.offsetX || e.clientX - e.target.getBoundingClientRect().left;
+  var mouseY = e.offsetY || e.clientY - e.target.getBoundingClientRect().top;
 
   if(mouseX < 493 && mouseX > 410 && mouseY < 67 && mouseY > 0) {
     if(toggle !== 1) {  
